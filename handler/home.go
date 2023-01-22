@@ -17,7 +17,7 @@ func HomeHandler(l *log.Logger) *Hello {
 
 // define ServeHTTP - to make Hello a handler
 func (h *Hello) ServeHTTP(w http.ResponseWriter, req *http.Request) {
-	h.l.Printf("Hello World!")
+	h.l.Printf("Request coming in!")
 	d, err := ioutil.ReadAll(req.Body)
 	// defensive programming, do not ignore error handling
 	if err != nil {
