@@ -5,13 +5,16 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/RanZH-47/go-my-microservice/handler"
 )
 
 func main() {
 	l := log.New(os.Stdout, "product-api", log.LstdFlags)
-	gl := handler.GeneralLogger(l)
+	hh := handler.HomeHandler(l)
 
-	hd := http.HandleFunc("/", gl)
+	sm := http.NewServeMux()
+	sm.Handle("/", hh)
 
-	http.ListenAndServe(":80", hd)
+	http.ListenAndServe(":80", sm)
 }

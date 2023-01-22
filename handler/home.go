@@ -11,12 +11,12 @@ type Hello struct {
 	l *log.Logger
 }
 
-func GeneralLogger(l *log.Logger) *Hello {
+func HomeHandler(l *log.Logger) *Hello {
 	return &Hello{l}
 }
 
-// define a custom handler
-func (h *Hello) ServeHttp(w http.ResponseWriter, req *http.Request) {
+// define ServeHTTP - to make Hello a handler
+func (h *Hello) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	h.l.Printf("Hello World!")
 	d, err := ioutil.ReadAll(req.Body)
 	// defensive programming, do not ignore error handling
