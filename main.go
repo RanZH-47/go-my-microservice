@@ -5,8 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-
-	"github.com/ranZH-47/go-my-microservice/handler"
 )
 
 func main() {
