@@ -7,14 +7,17 @@ import (
 	"net/http"
 )
 
+// define "class" hello
 type Hello struct {
 	l *log.Logger
 }
 
+// server mux
 func HomeHandler(l *log.Logger) *Hello {
 	return &Hello{l}
 }
 
+// methods defined on struct type
 // define ServeHTTP - to make Hello a handler
 func (h *Hello) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	h.l.Printf("Request coming in!")
