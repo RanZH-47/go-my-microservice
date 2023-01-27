@@ -14,7 +14,7 @@ import (
 
 func main() {
 	l := log.New(os.Stdout, "product-api", log.LstdFlags)
-	hh := handler.HomeHandler(l)
+	hh := handler.NewHomeHandler(l)
 	gb := handler.NewGoodbyeHandler(l)
 
 	sm := http.NewServeMux()
