@@ -1,6 +1,10 @@
 package coffee
 
-import "time"
+import (
+	"encoding/json"
+	"io"
+	"time"
+)
 
 // struct tags
 type Product struct {
@@ -35,6 +39,13 @@ var products = []*Product{
 	},
 }
 
-func GetAllProducts() []*Product {
+type Products []*Product
+
+func GetAllProducts() Products {
 	return products
+}
+
+func (p *Products) ToJSON(w io.Writer) error {
+	e := json.NewEncoder(w)
+	return e.Encode(p)
 }
