@@ -9,7 +9,7 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/RanZH-47/go-my-microservice/handler"
+	"github.com/RanZH-47/go-my-microservice/server-config/handler"
 )
 
 func main() {
