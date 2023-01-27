@@ -13,7 +13,7 @@ type Hello struct {
 }
 
 // server mux
-func HomeHandler(l *log.Logger) *Hello {
+func NewHomeHandler(l *log.Logger) *Hello {
 	return &Hello{l}
 }
 
