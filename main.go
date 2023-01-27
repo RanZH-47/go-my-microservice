@@ -9,17 +9,19 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/RanZH-47/go-my-microservice/server-config/handler"
+	"github.com/RanZH-47/go-my-microservice/handler"
 )
 
 func main() {
 	l := log.New(os.Stdout, "product-api", log.LstdFlags)
 	hh := handler.NewHomeHandler(l)
 	gb := handler.NewGoodbyeHandler(l)
+	cf := handler.NewProductHandler(l)
 
 	sm := http.NewServeMux()
 	sm.Handle("/", hh)
 	sm.Handle("/goodbye", gb)
+	sm.Handle("/coffee", cf)
 
 	s := &http.Server{
 		Addr:         ":80",

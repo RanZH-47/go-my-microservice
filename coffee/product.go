@@ -2,15 +2,16 @@ package coffee
 
 import "time"
 
+// struct tags
 type Product struct {
-	ID          int
-	Name        string
-	Description string
-	Price       float32
-	SKU         string
-	CreatedOn   string
-	UpdateOn    string
-	DeletedOn   string
+	ID          int     `json:"id"`
+	Name        string  `json:"name"`
+	Description string  `json:"description"`
+	Price       float32 `json:"price"`
+	SKU         string  `json:"sku"`
+	CreatedOn   string  `json:"-"`
+	UpdatedOn   string  `json:"-"`
+	DeletedOn   string  `json:"-"`
 }
 
 var products = []*Product{
@@ -21,7 +22,7 @@ var products = []*Product{
 		Price:       2.45,
 		SKU:         "xyz456",
 		CreatedOn:   time.Now().UTC().String(),
-		UpdateOn:    time.Now().UTC().String(),
+		UpdatedOn:   time.Now().UTC().String(),
 	},
 	{
 		ID:          2,
@@ -30,6 +31,10 @@ var products = []*Product{
 		Price:       1.35,
 		SKU:         "def123",
 		CreatedOn:   time.Now().UTC().String(),
-		UpdateOn:    time.Now().UTC().String(),
+		UpdatedOn:   time.Now().UTC().String(),
 	},
+}
+
+func GetAllProducts() []*Product {
+	return products
 }
